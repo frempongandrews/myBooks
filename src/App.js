@@ -9,7 +9,7 @@ const App = React.createClass({
     getInitialState() {
         return {
             books: [],
-            text: "javascript"
+            text: ""
         }
     },
 

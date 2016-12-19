@@ -1,5 +1,5 @@
 import React from 'react';
-import {Well, FormControl}
+import {Well, FormControl, Button} from 'react-bootstrap';
 
 const SearchInput = React.createClass({
     handleInputChange (e) {
@@ -15,10 +15,16 @@ const SearchInput = React.createClass({
     render () {
         // console.log(this.refs.seachInput);
         return (
-            <div>
-                <input ref="searchInput" className="text-input" type="text" onChange={this.handleInputChange}/>
-                <button onClick={this.handleStartSearch}>Search</button>
-            </div>
+
+            <Well>
+                <FormControl
+                    type="text"
+                    placeholder="Search Books..."
+                    onChange={this.handleInputChange}
+                />
+                <br />
+                <Button onClick={this.handleStartSearch}> Search </Button>
+            </Well>
         )
     }
 });
