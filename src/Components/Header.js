@@ -8,7 +8,7 @@ const Header = React.createClass({
     render () {
         return (
             <Navbar className="App-header">
-                <h1> Bookfinder </h1>
+                <h1> MyBooks </h1>
                 <SearchInput
                     inputChange={this.props.inputChange}
                     startSearch={this.props.startSearch}
