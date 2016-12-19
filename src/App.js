@@ -26,16 +26,21 @@ const App = React.createClass({
     getBooks(text) {
         var self;
         self = this;
-        axios.get('https://www.googleapis.com/books/v1/volumes/?q=' + text)
-            .then(function (response) {
-                // console.log(response.data);
-                self.setState({
-                    books: response.data.items
+        text = text || "";
+
+        if (text.length > 0) {
+            axios.get('https://www.googleapis.com/books/v1/volumes/?q=' + text)
+                .then(function (response) {
+                    // console.log(response.data);
+                    self.setState({
+                        books: response.data.items
+                    })
                 })
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
     },
 
     componentWillMount () {
@@ -43,7 +48,7 @@ const App = React.createClass({
     },
 
     render () {
-        console.log(this.state);
+        // console.log(this.state);
         return (
             <div className="App">
                 <Header inputChange={this.inputChange} startSearch={this.startSearch} text={this.state.text}/>

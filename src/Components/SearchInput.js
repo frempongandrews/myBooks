@@ -1,5 +1,5 @@
 import React from 'react';
-import {Well, FormControl, Button} from 'react-bootstrap';
+import {Well, Button} from 'react-bootstrap';
 
 const SearchInput = React.createClass({
     handleInputChange (e) {
@@ -12,15 +12,26 @@ const SearchInput = React.createClass({
         this.props.startSearch(this.props.text);
         this.refs.searchInput.value = "";
     },
+
+
+
     render () {
-        console.log(this.refs.searchInput);
+        // console.log(this.props);
+        //setting placeholder value
+        var placeholderText;
+        if (this.props.text === "") {
+            placeholderText = "Search Books..."
+        } else {
+            placeholderText = this.props.text;
+        }
+
         return (
 
             <Well>
                 <input
                     className="input-text"
                     type="text"
-                    placeholder="Search Books..."
+                    placeholder={placeholderText}
                     onChange={this.handleInputChange}
                     ref="searchInput"
                 />
