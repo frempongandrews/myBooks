@@ -3,3 +3,18 @@
   color: #ffffff;
 }
 
+.rating{
+    font-size: 30px;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background: #333;
+}
+
+.App-header input{
+    color: black;
+}
+
+.panel-title a{
+    cursor: pointer;
+}

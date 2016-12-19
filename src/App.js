@@ -9,14 +9,24 @@ const App = React.createClass({
     getInitialState() {
         return {
             books: [],
-            text: "Harry Potter"
+            text: "javascript"
         }
     },
 
-    getBooks() {
+    inputChange (text) {
+        this.setState({
+            text: text
+        });
+    },
+
+    startSearch (text) {
+      this.getBooks(text);
+    },
+
+    getBooks(text) {
         var self;
         self = this;
-        axios.get('https://www.googleapis.com/books/v1/volumes/?q=' + this.state.text)
+        axios.get('https://www.googleapis.com/books/v1/volumes/?q=' + text)
             .then(function (response) {
                 // console.log(response.data);
                 self.setState({
@@ -36,7 +46,7 @@ const App = React.createClass({
         console.log(this.state);
         return (
             <div className="App">
-                <Header/>
+                <Header inputChange={this.inputChange} startSearch={this.startSearch} text={this.state.text}/>
                 <Grid>
                     <Row>
                         <Col xs={12} md={12} lg={12}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Row, Col, Accordion, Panel, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Grid, Row, Col, Accordion, Panel, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 const Books = React.createClass({
 
     render () {
@@ -20,11 +20,11 @@ const Books = React.createClass({
                 var buyLink = book.saleInfo.buyLink;
 
                 return (
-                    <Panel key={id} header={title} eventKey={id}>
+                    <Panel key={id} header={title} eventKey={id} className="book-panel">
                         <Grid>
                             <Row>
                                 <Col xs={3} md={3} lg={3}>
-                                    <img src={thumbnail} role="presentation"/>
+                                    <img src={thumbnail} target="_blank" role="presentation"/>
                                 </Col>
 
                                 <Col xs={8} md={8} lg={8}>
@@ -56,15 +56,22 @@ const Books = React.createClass({
                                 </Col>
                             </Row>
 
-                            <Row Col xs={11} md={11} lg={11}>
-                                <h3>Book Description</h3>
+                            <Row>
+                                <Col xs={11} md={11} lg={11}>
+                                    <h3>Book Description</h3>
+                                    {description}
+                                    <hr />
+                                    <Button href={buyLink} bsStyle="primary">
+                                        BUY NOW
+                                    </Button>
+                                </Col>
                             </Row>
 
 
                         </Grid>
-                    </Panel>
+                   </Panel>
                 )
-            })
+            });
         }
         return (
             <div>
